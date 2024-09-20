@@ -1,6 +1,7 @@
-#version 1
+#version 2
 
 import customtkinter as ctk
+import tkinter.messagebox as msgbox
 
 
 # Create the main window
@@ -17,6 +18,14 @@ root.geometry(f"{screen_width}x{screen_height}+0+0")
 # Function to clear the entry form
 def clear_entry():
     url_entry.delete(0, 'end')
+
+# Function to handle the "Get Reviews" button click
+def get_reviews():
+    if not url_entry.get():  # Check if the URL entry is empty
+        msgbox.showwarning("Warning", "The URL field is empty! Please enter a URL.")  # Show a warning message
+    else:
+        acc_url = url_entry.get()  # Store the URL in acc_url variable
+        print(f"The accommodation URL is: {acc_url}")  # Print the URL in the console
 
 # Create a header label
 header_label = ctk.CTkLabel(root, text="InstaGuide", font=("Arial", 64, "bold"), text_color="#65bbff")
@@ -45,10 +54,10 @@ clear_button = ctk.CTkButton(button_frame, text="Clear", command=clear_entry, te
 clear_button.pack(side="left", padx=15)
 
 # Add a button to get the reviews
-get_reviews_button = ctk.CTkButton(button_frame, text="Get Reviews", text_color="#65bbff",
+get_reviews_button = ctk.CTkButton(button_frame, text="Get Reviews", command=get_reviews, text_color="#65bbff",
                                    fg_color=root.cget("fg_color"), border_color="#65bbff", border_width=2,
                                    font=("Arial", 16, "bold"))
-get_reviews_button.pack(side="right", padx=15)  # Place next to the Clear button 
+get_reviews_button.pack(side="right", padx=15)  # Place next to the Clear button
 
 # Start the main loop of the application
 root.mainloop()
