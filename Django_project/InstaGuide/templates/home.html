@@ -4,15 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InstaGuide</title>
+    <title>instaGuide</title>
     <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
 </head>
 <body>
     <header>
-        
+        <h1 class="header"><center>instaGuide</center></h1>
+        <img src="{% static 'logo.png' %}" alt="InstaGuide Logo" class="logo">
     </header>
     <main>
-        <h1> InstaGuide Main Page :DDDD! </h1>
+        <label for="accommodationUrl" class="label_url"><b>Please enter the URL of the accommodation you are interested in:</b></label>
+        <input type="text" id="accommodationUrl" name="accommodationUrl" class="url-input" placeholder="Enter URL here">
+        
+       
+        <div class="button-container">
+            <button type="button" class="btn1 clear-btn" onclick="clearForm()">Clear</button>
+            <button type="button" class="btn2 submit-btn" onclick="submitForm()">Submit</button>
+        </div>
     </main>
+    
+    
+           
+   <script src="{% static 'home.js' %}"></script>
+    
+    
 </body>
 </html>
