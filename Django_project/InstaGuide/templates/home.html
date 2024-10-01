@@ -13,20 +13,19 @@
         <img src="{% static 'logo.png' %}" alt="InstaGuide Logo" class="logo">
     </header>
     <main>
-        <label for="accommodationUrl" class="label_url"><b>Please enter the URL of the accommodation you are interested in:</b></label>
-        <input type="text" id="accommodationUrl" name="accommodationUrl" class="url-input" placeholder="Enter URL here">
-        
-       
-        <div class="button-container">
-            <button type="button" class="btn1 clear-btn" onclick="clearForm()">Clear</button>
-            <button type="button" class="btn2 submit-btn" onclick="submitForm()">Submit</button>
-        </div>
+        <!-- Προσθήκη φόρμας με μέθοδο POST -->
+        <form id="accommodationForm" method="POST">
+            {% csrf_token %}  <!-- Προσθήκη του CSRF token -->
+            <label for="accommodationUrl" class="label_url"><b>Please enter the URL of the accommodation you are interested in:</b></label>
+            <input type="text" id="accommodationUrl" name="accommodationUrl" class="url-input" placeholder="Enter URL here">
+            
+            <div class="button-container">
+                <button type="button" class="btn1 clear-btn" onclick="clearForm()">Clear</button>
+                <button type="button" class="btn2 submit-btn" onclick="submitForm()">Submit</button>
+            </div>
+        </form>
     </main>
     
-    
-           
-   <script src="{% static 'home.js' %}"></script>
-    
-    
+    <script src="{% static 'home.js' %}"></script>
 </body>
 </html>
