@@ -1,7 +1,7 @@
 import openai
 
 # Setting the OpenAI API key
-
+openai.api_key = "MY_KEY"
 
 def summarize_reviews(reviews):
     
@@ -12,15 +12,16 @@ def summarize_reviews(reviews):
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",
             messages=[
-                {"role": "system", "content": "You are a helpful assistant that summarizes hotel reviews."},
-                {"role": "user", "content": f"Please summarize the following hotel reviews in a single paragraph, and make sure the summary is no longer than 150 words: {reviews}"}
+                {"role": "system", "content": "You are a helpful assistant that summarizes accommodation reviews."},
+                {"role": "user", "content": f"Please summarize the following accommodation reviews in a single paragraph, and make sure the summary is no longer than 150 words: {reviews}"}
             ],
-            max_tokens= 250,  # Set the maximum number of tokens (words/characters) for the model's response (the summary)
+            max_tokens= 300,  # Set the maximum number of tokens (words/characters) for the model's response (the summary)
         )
         
         # Get the summary
         summary = response['choices'][0]['message']['content']
-                        
+        
+                
         return summary
 
     except Exception as e:

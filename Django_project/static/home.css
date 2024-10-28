@@ -40,8 +40,8 @@ h1 {
     font-family: monospace;
     outline: none;
     margin-left: 1%;
-    width: 20%;
-    margin-top: 1%;
+    width: 30.5%;
+    margin-top: 2%;
 }
 
 .label_url{
@@ -50,6 +50,29 @@ h1 {
     font-family: monospace;
     margin-left: 1%;
 }
+
+.label_url2{
+    color: white;
+    font-size: 130%;
+    font-family: monospace;
+    margin-left: 1%;
+    
+}
+
+
+.txt-input {
+    border: 2px solid white;
+    background-color: #2C3E50;
+    color: rgb(255, 255, 255);
+    padding: 0.3%;
+    font-size: 130%;
+    font-family: monospace;
+    outline: none;
+    margin-left: 1%;
+    width: 28%;
+    margin-top: 3%;
+}
+
 
 
 .button-container {
@@ -84,6 +107,20 @@ h1 {
     background-color: #34495E; 
 }
 .btn2:hover {
+    background-color: #34495E; 
+}
+
+.btn3 {
+    border: 2px solid white;
+    background-color: #2C3E50;
+    color: white;
+    padding: 0.15% 0.5%;
+    font-size: 120%;
+    font-family: monospace;
+    cursor: pointer;
+    margin-left: 48.5%;
+}
+.btn3:hover {
     background-color: #34495E; 
 }
 
@@ -139,7 +176,7 @@ h1 {
     padding: 1%;
     font-size: 120%;
     font-family: monospace;
-    margin-top: 12%;
+    margin-top: 2%;
     width: 35%;
     margin-left: 1%;
     height: 250px;

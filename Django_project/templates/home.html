@@ -15,7 +15,7 @@
     <main>
         <form id="accommodationForm" method="POST">
             {% csrf_token %}
-            <label for="accommodationUrl" class="label_url"><b>Please enter the URL of the accommodation you are interested in:</b></label>
+            <label for="accommodationUrl" class="label_url"><b>Please enter the URL of the accommodation:</b></label>
             <input type="text" id="accommodationUrl" name="accommodationUrl" class="url-input" placeholder="Enter URL here">
             
             <div class="button-container">
@@ -25,8 +25,17 @@
         </form>
 
         
+        <form id="specificInfoForm">
+            <label for="specificInfo" class="label_url2"><b>Get specific information about the accommodation:</b></label>
+            <input type="text" id="specificInfo" name="specificInfo" class="txt-input" placeholder="Enter your query here">
+            <div class="button-container">
+                <button type="button" class="btn3 submit-btn" onclick="submitQuery()">Submit</button>
+            </div>
+        </form>
+
+       
         <div id="textbox" class="textbox">
-            The summary of the accommodation reviews will appear here ...
+            The summary and the answers to the queries will appear here...
         </div>
     </main>
 
