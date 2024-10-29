@@ -41,7 +41,7 @@ h1 {
     outline: none;
     margin-left: 1%;
     width: 30.5%;
-    margin-top: 2%;
+    margin-top: 3%;
 }
 
 .label_url{
@@ -176,9 +176,35 @@ h1 {
     padding: 1%;
     font-size: 120%;
     font-family: monospace;
-    margin-top: 2%;
+    margin-top: 1.5%;
     width: 35%;
     margin-left: 1%;
-    height: 250px;
+    height: 220px;
     overflow-y: auto;
+}
+
+
+
+.dropdown-container {
+    
+    margin-left: 1%;
+    
+}
+
+.label_lang {
+    color: white;
+    font-size: 135%;
+    font-family: monospace;
+    margin-right: 10px;
+}
+
+.dropdown {
+    border: 2px solid white;
+    background-color: #2C3E50;
+    color: white;
+    padding: 0.3%;
+    font-size: 120%;
+    font-family: monospace;
+    outline: none;
+    cursor: pointer;
 }

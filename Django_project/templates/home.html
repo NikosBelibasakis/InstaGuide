@@ -10,8 +10,22 @@
 <body>
     <header>
         <h1 class="header"><center>instaGuide</center></h1>
+        <div class="dropdown-container">
+            <label for="language-select" class="label_lang"><b>Answers in:</b></label>
+            <select id="language-select" class="dropdown">
+                <option value="English">English</option>
+                <option value="Greek">Ελληνικά</option>
+                <option value="Spanish">Español</option>
+                <option value="French">Français</option>
+                <option value="German">Deutsch</option>
+                <option value="Italian">Italiano</option>
+                <option value="Portuguese">Português</option>
+              
+            </select>
+        </div>
         <img src="{% static 'logo.png' %}" alt="InstaGuide Logo" class="logo">
     </header>
+    
     <main>
         <form id="accommodationForm" method="POST">
             {% csrf_token %}
@@ -24,7 +38,6 @@
             </div>
         </form>
 
-        
         <form id="specificInfoForm">
             <label for="specificInfo" class="label_url2"><b>Get specific information about the accommodation:</b></label>
             <input type="text" id="specificInfo" name="specificInfo" class="txt-input" placeholder="Enter your query here">
@@ -33,7 +46,6 @@
             </div>
         </form>
 
-       
         <div id="textbox" class="textbox">
             The summary and the answers to the queries will appear here...
         </div>

@@ -3,6 +3,7 @@ var summary;
 
 function submitForm() {
     var urlInput = document.getElementById('accommodationUrl').value;
+    var languageSelect = document.getElementById('language-select').value;
 
     if (urlInput.trim() === "") {
         showModal("Warning: The URL field cannot be empty.");
@@ -23,7 +24,8 @@ function submitForm() {
                     'X-CSRFToken': csrftoken
                 },
                 body: new URLSearchParams({
-                    'accommodationUrl': urlInput
+                    'accommodationUrl': urlInput,
+                    'language': languageSelect 
                 })
             })
             .then(() => {
@@ -53,6 +55,7 @@ function submitForm() {
 
 function submitQuery() {
     var specificInfo = document.getElementById('specificInfo').value;
+    var languageSelect = document.getElementById('language-select').value;
 
     if (specificInfo.trim() === "") {
         showModal("Warning: The query field cannot be empty.");
@@ -67,7 +70,8 @@ function submitQuery() {
                 'X-CSRFToken': csrftoken
             },
             body: new URLSearchParams({
-                'specificInfo': specificInfo
+                'specificInfo': specificInfo,
+                'language': languageSelect 
             })
         })
         .then(response => response.text())

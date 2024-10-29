@@ -7,7 +7,7 @@ def get_rev(url):
     client = ApifyClient("apify_api_VHvKCWnWG63SxqA87sBZV31NKoHtfP0u9jjc")
     run_input = {
         "url": url,
-        "numberOfReviews": 20,
+        "numberOfReviews": 30,
         "sortOrder": "Newest first",
     }
 
