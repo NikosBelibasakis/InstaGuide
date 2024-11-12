@@ -1,28 +1,25 @@
 from apify_client import ApifyClient
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-
 # Uses the 'Booking.com Reviews Scraper' by Apify to get the reviews of the given accommodation
-def get_rev(url):
+def get_rev2(url):
     client = ApifyClient("apify_api_VHvKCWnWG63SxqA87sBZV31NKoHtfP0u9jjc")
     run_input = {
-        "url": url,
-        "numberOfReviews": 200,
-        "sortOrder": "Most relevant",
+        "reviewUrls": [{"url": url}],
+        "maxResults": 200,
+        "sorter": "MOST_RELEVANT",
     }
 
-    run = client.actor("arel/booking-com-reviews-scraper").call(run_input=run_input)
+    run = client.actor("ha1poFT8aWXtFvnaQ").call(run_input=run_input)
     reviews = client.dataset(run["defaultDatasetId"]).iterate_items()
 
-    # Processes a review.
+    # Processes a review with the new structure.
     def process_review(rev):
-       
         title = rev.get('title', 'No title available')
-        positive_comment = rev.get('positiveComment', 'No positive comment available')
-        negative_comment = rev.get('negativeComment', 'No negative comment available')
-        reviewer_country = rev.get('reviewerCountry' , 'No reviewer country available')
-        review_date = rev.get('reviewDate', 'No review date available')
-        
+        positive_comment = rev.get('positiveText', 'No positive comment available')
+        negative_comment = rev.get('negativeText', 'No negative comment available')
+        review_date = rev.get('reviewedDate', 'No review date available')
+        reviewer_country = rev.get('countryName', 'No country name available')
 
         # Formatted review structure
         formatted_review = (
@@ -36,7 +33,6 @@ def get_rev(url):
         )
         return formatted_review
 
-
     # We use a thread pool to process reviews in parallel
     with ThreadPoolExecutor(max_workers=20) as executor:
         futures = {executor.submit(process_review, review): review for review in reviews}
@@ -45,10 +41,9 @@ def get_rev(url):
         total_reviews = []
         for future in as_completed(futures):
             total_reviews.append(future.result())
-    
-    # Convert the list of reviews into a single string
-    combined_reviews = " ".join(total_reviews)
 
+    # Convert the list of reviews into a single string with clear separation
+    combined_reviews = " ".join(total_reviews)
     
     # Return the reviews
     return combined_reviews

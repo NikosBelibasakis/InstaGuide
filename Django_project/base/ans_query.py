@@ -18,7 +18,7 @@ def ans_query(query, reviews, selected_language):
                 },
                 {
                     "role": "user",
-                    "content": f"Based on these reviews: {reviews}, please respond to the following request or question in less than 200 words: {query}"
+                    "content": f"Based on these reviews only: {reviews}, please respond to the following request or question regarding the accommodation in less than 200 words: {query}"
                 }
             ],
             max_tokens=500,  # Set the maximum number of tokens (words/characters) for the model's answer

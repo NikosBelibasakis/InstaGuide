@@ -1,8 +1,9 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from base.get_rev import get_rev
+from base.get_rev3 import get_rev3
 from base.rev_summ import summarize_reviews
 from base.ans_query import ans_query
+import asyncio
 
 reviews = None
 selected_language = None
@@ -16,7 +17,7 @@ def get_reviews(request):
     if request.method == "POST":
         url = request.POST.get('accommodationUrl')
         selected_language = request.POST.get('language')
-        reviews = get_rev(url)
+        reviews = asyncio.run(get_rev3(url))
         return HttpResponse(0)
         
 
