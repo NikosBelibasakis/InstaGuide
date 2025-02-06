@@ -8,9 +8,9 @@ def ans_query(query, reviews, selected_language):
     Answer a query based on the accommodation reviews, responding in the selected language.
     """
     try:
-        # Call to GPT-4o-mini for generating an answer
+        # Call to GPT-4o for generating an answer
         response = openai.ChatCompletion.create(
-            model="gpt-4o-mini",
+            model="gpt-4o",
             messages=[
                 {
                     "role": "system",
@@ -18,10 +18,10 @@ def ans_query(query, reviews, selected_language):
                 },
                 {
                     "role": "user",
-                    "content": f"Based on these reviews only: {reviews}, please respond to the following request or question regarding the accommodation in less than 200 words: {query}"
+                    "content": f"Using only the provided reviews: {reviews}, please address the following request or question related to the accommodation. Please keep your response concise and under 300 words: {query}"
                 }
             ],
-            max_tokens=500,  # Set the maximum number of tokens (words/characters) for the model's answer
+           
         )
         
         # Get the answer

@@ -4,7 +4,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # Uses the 'Booking.com Reviews Scraper' by Apify to get the reviews of the given accommodation
 def get_rev(url):
-    client = ApifyClient("apify_api_VHvKCWnWG63SxqA87sBZV31NKoHtfP0u9jjc")
+    client = ApifyClient("MY_KEY")
     run_input = {
         "url": url,
         "numberOfReviews": 200,

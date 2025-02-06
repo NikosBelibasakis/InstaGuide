@@ -1,8 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from base.get_rev3 import get_rev3
-from base.rev_summ import summarize_reviews
-from base.ans_query import ans_query
+from base.rev_summ4 import summarize_reviews
+from base.ans_query4 import ans_query
 import asyncio
 
 reviews = None
@@ -20,13 +20,11 @@ def get_reviews(request):
         reviews = asyncio.run(get_rev3(url))
         return HttpResponse(0)
         
-
 def cr_summ(request):
     global reviews
     if request.method == "POST":
         reviews_summary = summarize_reviews(reviews,selected_language)
         return HttpResponse(reviews_summary)
-
 
 def get_query(request):
     global reviews
@@ -36,13 +34,11 @@ def get_query(request):
         selected_language = request.POST.get('language')
         
         if reviews is None:
-            
             return HttpResponse("no_url")
                 
         answer = ans_query(query, reviews, selected_language)
         return HttpResponse(answer)
     
-
 def clear_reviews(request):
     global reviews
     reviews = None

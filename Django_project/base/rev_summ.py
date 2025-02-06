@@ -1,16 +1,16 @@
 import openai
 
 # Setting the OpenAI API key
-openai.api_key = "MY_KEY"
+openai.api_key = "my_key"
 
 def summarize_reviews(reviews, selected_language):
     """
     Summarizes the accommodation reviews and returns the summary in the selected language.
     """
     try:
-        # Call to GPT-4o-mini for generating a summary
+        # Call to GPT-4o for generating a summary
         response = openai.ChatCompletion.create(
-            model="gpt-4o-mini",
+            model="gpt-4o",
             messages=[
                 {
                     "role": "system",
@@ -18,10 +18,10 @@ def summarize_reviews(reviews, selected_language):
                 },
                 {
                     "role": "user",
-                    "content": f"Please summarize the following accommodation reviews in a single paragraph, and make sure the summary is no longer than 200 words: {reviews}"
+                    "content": f"Please provide a concise summary of the following accommodation reviews in a single paragraph, up to 200 words: {reviews}"
                 }
             ],
-            max_tokens=500,  # Set the maximum number of tokens for the model's response
+            
         )
         
         # Get the summary
